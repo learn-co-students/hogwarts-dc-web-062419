@@ -1,16 +1,30 @@
-import React, { Component } from 'react';
-import '../App.css';
-import Nav from './Nav'
-import hogs from '../porkers_data';
+import React, { Component } from "react";
+import "../App.css";
+import Nav from "../containers/Nav";
+import hogsData from "../porkers_data";
+import HogContainer from "../containers/HogContainer";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      hogs: [],
+      filters: {
+        greased: hogsData.greased
+      }
+    };
+  }
+  getHogs = () => {
+    hogsData.map(hogs => this.setState({ hogs }));
+  };
+
   render() {
     return (
       <div className="App">
-          < Nav />
-
+        <Nav />
+        <ul>{this.getHogs}</ul>
       </div>
-    )
+    );
   }
 }
 
