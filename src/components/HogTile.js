@@ -28,7 +28,6 @@ class HogTile extends Component {
         {this.state.displayDetails ? (
           <div>
             <p>Specialty: {specialty}</p>
-            <p>greased: {greased}</p>
             <p>Weight: {weight}</p>
           </div>
         ) : null}
