@@ -3,6 +3,7 @@ import "../App.css";
 import Nav from "../containers/Nav";
 import hogsData from "../porkers_data";
 import HogContainer from "../containers/HogContainer";
+import Filter from "./Filter";
 
 class App extends Component {
   constructor() {
@@ -14,15 +15,16 @@ class App extends Component {
       }
     };
   }
-  getHogs = () => {
-    hogsData.map(hogs => this.setState({ hogs }));
-  };
+  componentDidMount() {
+    this.setState({ hogs: hogsData });
+  }
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <ul>{this.getHogs}</ul>
+        <Filter />
+        <HogContainer hogs={this.state.hogs} />
       </div>
     );
   }

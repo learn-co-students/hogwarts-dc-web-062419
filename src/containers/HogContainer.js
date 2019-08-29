@@ -3,11 +3,14 @@ import Hog from "../components/Hog";
 
 import { hostname } from "os";
 class HogsContainer extends Component {
+  hogCards = () => {
+    return this.props.hogs.map(hog => {
+      return <Hog hog={hog} key={hog.name} />;
+    });
+  };
+
   render() {
-    const hogCards = this.props.hogs.map(hog => (
-      <Hog hog={hog} key={hog.name} />
-    ));
-    return <div className="ui grid container">{hogCards}</div>;
+    return <div className="ui grid container">{this.hogCards()}</div>;
   }
 }
 export default HogsContainer;
