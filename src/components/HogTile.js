@@ -19,12 +19,17 @@ class HogTile extends Component {
 
 
 
+
+  
+
+
   render() {
     const { name, specialty, greased, weight } = this.props.hog;
-    let color = "gray";
-    // style={{ background: color }}
+    // let color = "gray";
+    // style={ {background: color} } 
     return (
-      <div className="ui eight wide column" onClick={this.showDetails}>
+     
+      <div  className="ui eight wide column" onClick={this.showDetails}>
         <p>Name: {name}</p>
         <img src={hogpick} alt=""></img>
         {this.state.displayDetails ? (
