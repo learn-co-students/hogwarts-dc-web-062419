@@ -3,6 +3,14 @@
   text-align: center;
 }
 
+.dropdown-container {
+  margin: 30px auto 30px auto;
+}
+
+.dropdown {
+  margin: auto 20px auto 20px;
+}
+
 .TwirlyPig {
   transition: all 3s ease-in-out;
   display: inline;
