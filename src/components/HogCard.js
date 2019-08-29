@@ -49,14 +49,12 @@ export default class HogCard extends Component {
 
   render() {
     return (
-      <div
-        className=" ui-card ui eight wide column"
-        onClick={this.setHiddenAttributes}
-      >
+      <div className=" ui-card ui eight wide column ">
         <div className="image">
           <img
             src={require(`../hog-imgs/${this.splitName()}.jpg`)}
             alt="boohoo"
+            onClick={this.setHiddenAttributes}
           />
         </div>
         <div className="content">

@@ -3,6 +3,7 @@ import "../App.css";
 import Nav from "./Nav";
 import hogs from "../porkers_data";
 import HogContainer from "./HogContainer";
+import Filter from "./Filter.js";
 
 class App extends Component {
   constructor() {
@@ -13,10 +14,20 @@ class App extends Component {
     };
   }
 
+  handleFilter = event => {
+    let greasedHogs = this.state.hogs[0].filter(hog => {
+      return hog.greased === true;
+    });
+    this.setState({
+      hogs: [greasedHogs]
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <Nav />
+        <Filter handleFilter={this.handleFilter} />
         <HogContainer hogs={this.state.hogs[0]} />
       </div>
     );
