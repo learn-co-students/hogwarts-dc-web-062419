@@ -8,7 +8,7 @@ export default class PigContainer extends Component {
   state = {
     pigs: hogs,
     searchTerm: '',
-    filterGreasers: false,
+    filterPigs: 'all',
     sortPigs: 'name',
   };
 
@@ -20,16 +20,18 @@ export default class PigContainer extends Component {
 
   filterPigs() {
     return this.state.pigs.filter(pig => {
-      if (this.state.filterGreasers) {
+      if (this.state.filterPigs === 'dry') {
         return pig.name.toLowerCase().includes(this.state.searchTerm) && pig.greased === false;
+      } else if (this.state.filterPigs === 'greasy') {
+        return pig.name.toLowerCase().includes(this.state.searchTerm) && pig.greased === true;
       } else {
         return pig.name.toLowerCase().includes(this.state.searchTerm);
       }
     });
   }
 
-  onFilterGreasersChange = () => {
-    this.setState({ filterGreasers: !this.state.filterGreasers });
+  onFilterGreasersChange = e => {
+    this.setState({ filterPigs: e.target.value });
   };
 
   sortPigsByName = pigs => {
@@ -68,7 +70,7 @@ export default class PigContainer extends Component {
         <PigFilter
           searchTerm={this.state.searchTerm}
           onInputChange={this.onInputChange}
-          filterGreasers={this.state.filterGreasers}
+          filterGreasers={this.state.filterPigs}
           onFilterGreasersChange={this.onFilterGreasersChange}
           onSortPigsChange={this.onSortPigsChange}
         />
