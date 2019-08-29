@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import '../App.css';
-import Nav from './Nav'
-import hogs from '../porkers_data';
+import React, { Component } from "react";
+import "../App.css";
+import Nav from "./Nav";
+import HogBrowser from "./HogBrowser.js";
+import hogs from "../porkers_data";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          < Nav />
-
+        <Nav />
+        <HogBrowser hogs={hogs} />
       </div>
-    )
+    );
   }
 }
-
 export default App;
