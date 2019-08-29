@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Filter = props => {
   return (
+      <span>
+      Filter:
     <select  onChange={(event) => props.filterHogs(event)}>
-      <option value= "all" >all</option>
+      <option value= "all" >All</option>
       <option value= "true" >Greased</option>
       <option value= "false" >Not Greased</option>
     </select>
+    </span>
   );
 };
 

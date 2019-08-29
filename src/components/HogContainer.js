@@ -8,7 +8,7 @@ class HogContainer extends Component {
   
   render() {
     return (
-      <div>
+      <div className="ui grid container">
         {this.props.hogs.map(hog => (
           <HogTile hog={hog} key={hog.name} showDetails={this.showDetails} />
         ))}

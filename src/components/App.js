@@ -9,7 +9,7 @@ import Sort from "./Sort";
 class App extends Component {
   state = {
     hogs: hogs,
-    filteredHogs: []
+    filteredHogs: hogs
   };
 
   filterHogs = event => {
@@ -28,30 +28,31 @@ class App extends Component {
 
   sortHogs = (event) => {
     if(event.target.value === 'all'){
-      this.setState({
-        filteredHogs: this.state.hogs
-    })}
+    //   this.setState({
+    //     filteredHogs: this.state.hogs
+    // })
+  }
     else if (event.target.value === 'name'){
       this.setState({
-        hogs: this.state.hogs.sort((a, b) => (a.name > b.name) ? 1 : -1)
+        filterHogs: this.state.filteredHogs.sort((a, b) => (a.name > b.name) ? 1 : -1)
     })}
     else{
 
       this.setState({
-        hogs: this.state.hogs.sort((a, b) => (a.weight > b.weight) ? 1 : -1)
+        filterHogs: this.state.filteredHogs.sort((a, b) => (a.weight > b.weight) ? 1 : -1)
     })
     }
     
+  }
 
 
-  }git 
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <Filter filterHogs={this.filterHogs} />
-        <Sort sortHogs={this.sortHogs}/>
+        <p><Filter filterHogs={this.filterHogs} /> 
+        <Sort sortHogs={this.sortHogs}/></p>
         <HogContainer hogs={this.state.filteredHogs} />
       </div>
     );
