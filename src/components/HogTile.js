@@ -6,6 +6,8 @@ class HogTile extends Component {
     displayDetails: false
   };
 
+
+
   showDetails = () => {
 
     let status = !this.state.displayDetails;
@@ -36,6 +38,7 @@ class HogTile extends Component {
           <div>
             <p>Greased?: { greased ? "Greased" : "Not Greased"  }</p>
             <p>Specialty: {specialty}</p>
+            <p>Specialty: {this.props.hog["highest medal achieved"]}</p>
             <p>Weight: {weight}</p>
           </div>
         ) : null}
